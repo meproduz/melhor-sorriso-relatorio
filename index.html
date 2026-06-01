@@ -3,37 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melhor Sorriso — Relatório de Desempenho · Março 2026</title>
+<title>Melhor Sorriso — Relatório de Desempenho · Maio 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0e0e0e;
-    --surface: #161616;
-    --surface2: #1e1e1e;
-    --border: #2a2a2a;
-    --yellow: #c8d400;
-    --yellow-dim: rgba(200,212,0,0.10);
-    --text: #f0f0f0;
-    --muted: #777;
-    --green: #4ade80;
-    --green-dim: rgba(74,222,128,0.12);
-    --red: #f87171;
-    --red-dim: rgba(248,113,113,0.12);
+    --bg: #0e0e0e; --surface: #161616; --surface2: #1e1e1e; --border: #2a2a2a;
+    --yellow: #c8d400; --yellow-dim: rgba(200,212,0,0.10); --text: #f0f0f0; --muted: #777;
+    --green: #4ade80; --green-dim: rgba(74,222,128,0.12);
+    --red: #f87171; --red-dim: rgba(248,113,113,0.12);
   }
-
   * { margin:0; padding:0; box-sizing:border-box; }
   html { background: var(--bg); }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Poppins', sans-serif;
-    max-width: 480px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; max-width: 480px; margin: 0 auto; padding-bottom: 40px; }
   @media (min-width: 768px) {
     body { max-width: 720px; }
     .header { padding: 36px 40px 32px; }
@@ -45,323 +27,86 @@
     .pill-val { font-size: 24px; }
     .comp-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .chart-canvas { height: 240px !important; }
-    .insight { padding: 18px; }
+    .criativos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .footer { padding: 24px 36px; }
   }
-
   @media (min-width: 1024px) {
     body { max-width: 1020px; }
     .header { padding: 48px 56px 44px; }
     .section { padding: 36px 56px; }
-    .section-label { font-size: 11px; letter-spacing: 3px; margin-bottom: 20px; }
     .hero-metric { padding: 44px; }
     .hero-metric-val { font-size: 108px; }
-    .hero-metric-label { font-size: 18px; }
     .pills-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .pill { padding: 20px; }
-    .pill-emoji { font-size: 28px; }
     .pill-val { font-size: 30px; }
-    .pill-label { font-size: 13px; }
     .comp-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .criativos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .insight { padding: 22px; }
-    .insight-icon { font-size: 28px; }
-    .insight-title { font-size: 17px; }
-    .insight-text { font-size: 14px; }
     .chart-canvas { height: 300px !important; }
-    .footer { padding: 32px 56px; font-size: 13px; }
+    .footer { padding: 32px 56px; }
   }
-
-  .header {
-    background: var(--surface);
-    padding: 28px 24px 24px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(200,212,0,0.08) 0%, transparent 70%);
-  }
-
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .logo-mark {
-    width: 36px; height: 36px;
-    background: var(--yellow);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 13px; color: #0e0e0e;
-    letter-spacing: -0.5px;
-  }
-
-  .report-tag {
-    background: var(--yellow-dim);
-    border: 1px solid rgba(200,212,0,0.2);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 10px;
-    color: var(--yellow);
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .client-name {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-
+  .header { background: var(--surface); padding: 28px 24px 24px; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(200,212,0,0.08) 0%, transparent 70%); }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .logo-mark { width: 36px; height: 36px; background: var(--yellow); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #0e0e0e; }
+  .report-tag { background: var(--yellow-dim); border: 1px solid rgba(200,212,0,0.2); border-radius: 20px; padding: 4px 12px; font-size: 10px; color: var(--yellow); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .client-name { font-size: 32px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 4px; }
   .client-name span { color: var(--yellow); }
   .period { font-size: 12px; color: var(--muted); font-weight: 400; }
-
   .section { padding: 24px; border-bottom: 1px solid var(--border); }
-
-  .section-label {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .hero-metric {
-    background: var(--yellow);
-    border-radius: 20px;
-    padding: 28px 24px;
-    text-align: center;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-metric::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 120px; height: 120px;
-    background: rgba(0,0,0,0.06);
-    border-radius: 50%;
-  }
-
+  .section-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .hero-metric { background: var(--yellow); border-radius: 20px; padding: 28px 24px; text-align: center; margin-bottom: 16px; position: relative; overflow: hidden; }
+  .hero-metric::before { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; background: rgba(0,0,0,0.06); border-radius: 50%; }
   .hero-metric-emoji { font-size: 32px; margin-bottom: 8px; }
-  .hero-metric-val {
-    font-size: 64px;
-    font-weight: 900;
-    color: #0e0e0e;
-    line-height: 1;
-    letter-spacing: -3px;
-    margin-bottom: 4px;
-  }
-
+  .hero-metric-val { font-size: 64px; font-weight: 900; color: #0e0e0e; line-height: 1; letter-spacing: -3px; margin-bottom: 4px; }
   .hero-metric-label { font-size: 14px; font-weight: 600; color: rgba(0,0,0,0.6); }
-
-  .hero-metric-delta {
-    display: inline-block;
-    background: rgba(0,0,0,0.1);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #0e0e0e;
-    margin-top: 8px;
-  }
-
-  .pills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .pill {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px;
-    text-align: center;
-    transition: border-color 0.2s;
-  }
-
-  .pill:hover { border-color: var(--yellow); }
+  .hero-metric-delta { display: inline-block; background: rgba(0,0,0,0.1); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 700; color: #0e0e0e; margin-top: 8px; }
+  .pills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 16px; text-align: center; }
   .pill-emoji { font-size: 22px; margin-bottom: 6px; }
-
-  .pill-val {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 2px;
-    color: var(--text);
-  }
-
+  .pill-val { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 2px; }
   .pill-label { font-size: 13px; color: #aaa; font-weight: 500; line-height: 1.3; }
   .pill-delta { font-size: 12px; font-weight: 700; margin-top: 4px; }
-
-  .up { color: var(--green); }
-  .down { color: var(--red); }
-  .neutral { color: var(--yellow); }
-
+  .up { color: var(--green); } .down { color: var(--red); } .neutral { color: var(--yellow); }
   .comp-visual { display: flex; flex-direction: column; gap: 16px; }
-
-  .comp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-
+  .comp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
   .comp-metric-name { font-size: 14px; font-weight: 700; color: var(--text); }
-
-  .comp-delta-badge {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 10px;
-    border-radius: 20px;
-  }
-
+  .comp-delta-badge { font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 20px; }
   .comp-bars { display: flex; flex-direction: column; gap: 6px; }
-
   .comp-bar-row { display: flex; align-items: center; gap: 10px; }
-
-  .comp-bar-month {
-    font-size: 12px;
-    color: #aaa;
-    width: 28px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .comp-bar-track {
-    flex: 1;
-    height: 10px;
-    background: var(--surface2);
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  .comp-bar-fill { height: 100%; border-radius: 5px; transition: width 1s ease; }
-  .bar-prev { background: var(--border); }
-  .bar-mar { background: var(--yellow); box-shadow: 0 0 8px rgba(200,212,0,0.3); }
-
+  .comp-bar-month { font-size: 12px; color: #aaa; width: 28px; font-weight: 700; flex-shrink: 0; }
+  .comp-bar-track { flex: 1; height: 10px; background: var(--surface2); border-radius: 5px; overflow: hidden; }
+  .comp-bar-fill { height: 100%; border-radius: 5px; }
+  .bar-prev { background: var(--border); } .bar-cur { background: var(--yellow); box-shadow: 0 0 8px rgba(200,212,0,0.3); }
   .comp-bar-num { font-size: 11px; font-weight: 700; width: 64px; text-align: right; flex-shrink: 0; }
-
   .criativos-grid { display: flex; flex-direction: column; gap: 12px; }
   .insights-grid { display: flex; flex-direction: column; gap: 12px; }
-
-  .criativo {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 18px;
-    position: relative;
-  }
-
+  .criativo { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
   .criativo.winner { background: var(--yellow); border-color: var(--yellow); }
   .criativo.winner .criativo-name { color: #0e0e0e; }
   .criativo.winner .criativo-metric-label { color: rgba(0,0,0,0.55); }
   .criativo.winner .criativo-metric-val { color: #0e0e0e; }
-  .criativo.winner .criativo-rank {
-    color: #0e0e0e;
-    background: rgba(0,0,0,0.15);
-    border-radius: 20px;
-    padding: 3px 10px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-  }
-
-  .criativo-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 14px;
-  }
-
+  .criativo.winner .criativo-rank { color: #0e0e0e; background: rgba(0,0,0,0.15); border-radius: 20px; padding: 3px 10px; font-size: 11px; }
+  .criativo-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
   .criativo-rank { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
   .winner-crown { font-size: 22px; }
-
-  .criativo-name {
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 14px;
-  }
-
-  .criativo-pills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .criativo-metric {
-    text-align: center;
-    background: rgba(0,0,0,0.1);
-    border-radius: 10px;
-    padding: 8px 4px;
-  }
-
+  .criativo-name { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 14px; }
+  .criativo-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .criativo-metric { text-align: center; background: rgba(0,0,0,0.1); border-radius: 10px; padding: 8px 4px; }
   .criativo.winner .criativo-metric { background: rgba(0,0,0,0.08); }
-
-  .criativo-metric-label {
-    font-size: 9px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-    font-weight: 600;
-  }
-
-  .criativo-metric-val { font-size: 15px; font-weight: 800; letter-spacing: -0.5px; }
-
-  .chart-wrap {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-  }
-
+  .criativo-metric-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; font-weight: 600; }
+  .criativo-metric-val { font-size: 14px; font-weight: 800; }
+  .chart-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
   .chart-title { font-size: 13px; font-weight: 600; margin-bottom: 16px; color: var(--text); }
   .chart-canvas { height: 180px; position: relative; }
-
-  .insight {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 16px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
+  .insight { background: var(--surface2); border: 1px solid var(--border); border-radius: 16px; padding: 16px; display: flex; gap: 14px; align-items: flex-start; }
   .insight-icon { font-size: 24px; flex-shrink: 0; }
   .insight-content { flex: 1; }
   .insight-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
   .insight-text { font-size: 13px; color: #bbb; line-height: 1.6; }
-
   .footer { padding: 24px; display: flex; justify-content: space-between; align-items: center; }
-
   .footer-brand { display: flex; align-items: center; gap: 10px; }
   .footer-name { font-size: 14px; font-weight: 800; color: var(--yellow); }
   .footer-sub { font-size: 10px; color: var(--muted); }
@@ -370,395 +115,264 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
-  <div class="header-top">
-    <div class="logo-mark">Me.</div>
-    <div class="report-tag">Relatório Mensal</div>
-  </div>
+  <div class="header-top"><div class="logo-mark">Me.</div><div class="report-tag">Relatório Mensal</div></div>
   <div class="client-name">Melhor <span>Sorriso</span></div>
-  <div class="period">Março 2026 · 01/03 — 31/03</div>
+  <div class="period">Maio 2026 · 02/05 — 31/05</div>
 </div>
 
-<!-- RESULTADO DO MÊS -->
 <div class="section">
   <div class="section-label">Resultado do mês</div>
-
   <div class="hero-metric">
     <div class="hero-metric-emoji">💬</div>
-    <div class="hero-metric-val">198</div>
+    <div class="hero-metric-val">140</div>
     <div class="hero-metric-label">Pessoas entraram em contato</div>
-    <div class="hero-metric-delta">↑ 31,1% a mais que fevereiro</div>
+    <div class="hero-metric-delta">↓ 14,1% vs abril</div>
   </div>
-
   <div class="pills-grid">
     <div class="pill">
       <div class="pill-emoji">👁️</div>
-      <div class="pill-val">38.827</div>
+      <div class="pill-val">25.067</div>
       <div class="pill-label">Pessoas viram seu conteúdo</div>
-      <div class="pill-delta up">↑ +18,7% vs fev</div>
+      <div class="pill-delta down">↓ −14,8% vs abr</div>
     </div>
     <div class="pill">
       <div class="pill-emoji">💰</div>
-      <div class="pill-val">R$ 4,74</div>
+      <div class="pill-val">R$ 6,71</div>
       <div class="pill-label">Custo por contato</div>
-      <div class="pill-delta up">↓ Mais barato que fev</div>
+      <div class="pill-delta neutral">↑ +22,9% vs abr</div>
     </div>
     <div class="pill">
       <div class="pill-emoji">📱</div>
-      <div class="pill-val">84.933</div>
+      <div class="pill-val">60.018</div>
       <div class="pill-label">Vezes que apareceu</div>
-      <div class="pill-delta up">↑ +23,2% vs fev</div>
+      <div class="pill-delta down">↓ −9,5% vs abr</div>
     </div>
     <div class="pill">
-      <div class="pill-emoji">🖱️</div>
-      <div class="pill-val">369</div>
-      <div class="pill-label">Cliques no perfil</div>
-      <div class="pill-delta up">↑ +19,0% vs fev</div>
+      <div class="pill-emoji">💸</div>
+      <div class="pill-val">R$ 940</div>
+      <div class="pill-label">Total investido</div>
+      <div class="pill-delta neutral">↑ +5,7% vs abr</div>
     </div>
   </div>
 </div>
 
-<!-- DESEMPENHO GERAL -->
 <div class="section">
   <div class="section-label">Desempenho geral</div>
-
   <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <div style="font-size:15px;font-weight:700;color:var(--text)">Todas as métricas · Fev vs Mar</div>
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px">Todas as métricas · Abr vs Mai</div>
+    <div style="display:flex;gap:16px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:24px;height:3px;background:#a78bfa;border-radius:2px"></div><span style="font-size:12px;color:#a78bfa;font-weight:600">Abr</span></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:24px;height:3px;background:var(--yellow);border-radius:2px"></div><span style="font-size:12px;color:var(--yellow);font-weight:600">Mai</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(160,160,160,0.15)">
-        <div style="font-size:12px;color:#aaa;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Fevereiro</div>
-        <div style="font-size:36px;font-weight:900;color:#aaa;letter-spacing:-1px">151</div>
-        <div style="font-size:12px;color:#777;margin-top:4px;font-weight:500">contatos</div>
-      </div>
-      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(200,212,0,0.2)">
-        <div style="font-size:12px;color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Março</div>
-        <div style="font-size:36px;font-weight:900;color:var(--yellow);letter-spacing:-1px">198</div>
-        <div style="font-size:12px;color:#ccc;margin-top:4px;font-weight:500">contatos</div>
-      </div>
-    </div>
-    <div style="background:var(--green-dim);border:1px solid rgba(74,222,128,0.25);border-radius:12px;padding:14px">
-      <div style="font-size:14px;font-weight:700;color:var(--green);margin-bottom:6px">📈 Março superou em tudo</div>
-      <div style="font-size:13px;color:#ddd;line-height:1.7">31% mais contatos com 8% a mais de investimento. Custo por contato caiu de R$ 5,58 para R$ 4,74 — o melhor resultado da clínica desde o início das campanhas.</div>
+    <div class="chart-canvas"><canvas id="chartGeral"></canvas></div>
+    <div style="background:var(--yellow-dim);border:1px solid rgba(200,212,0,0.2);border-radius:12px;padding:14px;margin-top:16px">
+      <div style="font-size:14px;font-weight:700;color:var(--yellow);margin-bottom:6px">📉 Tendência de queda que precisa de atenção</div>
+      <div style="font-size:13px;color:#ddd;line-height:1.7">Terceiro mês consecutivo de queda em contatos: 198 → 163 → 140. Com 5,7% mais investimento em maio, os resultados caíram 14,1%. O criativo principal está perdendo eficiência — momento de renovar o portfólio de anúncios.</div>
     </div>
   </div>
 </div>
 
-<!-- COMPARATIVO -->
 <div class="section">
-  <div class="section-label">Fevereiro vs Março</div>
+  <div class="section-label">Abril vs Maio</div>
   <div class="comp-visual">
-
     <div class="comp-item">
-      <div class="comp-header">
-        <div class="comp-metric-name">💬 Contatos recebidos</div>
-        <div class="comp-delta-badge" style="background:var(--green-dim);color:var(--green)">+31,1% ↑</div>
-      </div>
+      <div class="comp-header"><div class="comp-metric-name">💬 Contatos recebidos</div><div class="comp-delta-badge" style="background:var(--yellow-dim);color:var(--yellow)">−14,1%</div></div>
       <div class="comp-bars">
-        <div class="comp-bar-row">
-          <div class="comp-bar-month">Fev</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:76%"></div></div>
-          <div class="comp-bar-num" style="color:var(--muted)">151</div>
-        </div>
-        <div class="comp-bar-row">
-          <div class="comp-bar-month" style="color:var(--yellow)">Mar</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-mar" style="width:100%"></div></div>
-          <div class="comp-bar-num" style="color:var(--yellow)">198</div>
-        </div>
+        <div class="comp-bar-row"><div class="comp-bar-month">Abr</div><div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:100%"></div></div><div class="comp-bar-num" style="color:var(--muted)">163</div></div>
+        <div class="comp-bar-row"><div class="comp-bar-month" style="color:var(--yellow)">Mai</div><div class="comp-bar-track"><div class="comp-bar-fill bar-cur" style="width:86%"></div></div><div class="comp-bar-num" style="color:var(--yellow)">140</div></div>
       </div>
     </div>
-
     <div class="comp-item">
-      <div class="comp-header">
-        <div class="comp-metric-name">💰 Valor investido</div>
-        <div class="comp-delta-badge" style="background:var(--yellow-dim);color:var(--yellow)">+7,6%</div>
-      </div>
+      <div class="comp-header"><div class="comp-metric-name">💰 Valor investido</div><div class="comp-delta-badge" style="background:var(--yellow-dim);color:var(--yellow)">+5,7%</div></div>
       <div class="comp-bars">
-        <div class="comp-bar-row">
-          <div class="comp-bar-month">Fev</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:93%"></div></div>
-          <div class="comp-bar-num" style="color:var(--muted)">R$ 872</div>
-        </div>
-        <div class="comp-bar-row">
-          <div class="comp-bar-month" style="color:var(--yellow)">Mar</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-mar" style="width:100%"></div></div>
-          <div class="comp-bar-num" style="color:var(--yellow)">R$ 938</div>
-        </div>
+        <div class="comp-bar-row"><div class="comp-bar-month">Abr</div><div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:95%"></div></div><div class="comp-bar-num" style="color:var(--muted)">R$ 889</div></div>
+        <div class="comp-bar-row"><div class="comp-bar-month" style="color:var(--yellow)">Mai</div><div class="comp-bar-track"><div class="comp-bar-fill bar-cur" style="width:100%"></div></div><div class="comp-bar-num" style="color:var(--yellow)">R$ 940</div></div>
       </div>
     </div>
-
     <div class="comp-item">
-      <div class="comp-header">
-        <div class="comp-metric-name">🎯 Custo por contato</div>
-        <div class="comp-delta-badge" style="background:var(--green-dim);color:var(--green)">−15,1% ↓</div>
-      </div>
+      <div class="comp-header"><div class="comp-metric-name">🎯 Custo por contato</div><div class="comp-delta-badge" style="background:var(--yellow-dim);color:var(--yellow)">+22,9%</div></div>
       <div class="comp-bars">
-        <div class="comp-bar-row">
-          <div class="comp-bar-month">Fev</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:100%"></div></div>
-          <div class="comp-bar-num" style="color:var(--muted)">R$ 5,58</div>
-        </div>
-        <div class="comp-bar-row">
-          <div class="comp-bar-month" style="color:var(--yellow)">Mar</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-mar" style="width:85%"></div></div>
-          <div class="comp-bar-num" style="color:var(--yellow)">R$ 4,74</div>
-        </div>
+        <div class="comp-bar-row"><div class="comp-bar-month">Abr</div><div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:81%"></div></div><div class="comp-bar-num" style="color:var(--muted)">R$ 5,46</div></div>
+        <div class="comp-bar-row"><div class="comp-bar-month" style="color:var(--yellow)">Mai</div><div class="comp-bar-track"><div class="comp-bar-fill bar-cur" style="width:100%"></div></div><div class="comp-bar-num" style="color:var(--yellow)">R$ 6,71</div></div>
       </div>
     </div>
-
     <div class="comp-item">
-      <div class="comp-header">
-        <div class="comp-metric-name">👁️ Pessoas alcançadas</div>
-        <div class="comp-delta-badge" style="background:var(--green-dim);color:var(--green)">+18,7% ↑</div>
-      </div>
+      <div class="comp-header"><div class="comp-metric-name">👁️ Pessoas alcançadas</div><div class="comp-delta-badge" style="background:var(--yellow-dim);color:var(--yellow)">−14,8%</div></div>
       <div class="comp-bars">
-        <div class="comp-bar-row">
-          <div class="comp-bar-month">Fev</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:84%"></div></div>
-          <div class="comp-bar-num" style="color:var(--muted)">32.723</div>
-        </div>
-        <div class="comp-bar-row">
-          <div class="comp-bar-month" style="color:var(--yellow)">Mar</div>
-          <div class="comp-bar-track"><div class="comp-bar-fill bar-mar" style="width:100%"></div></div>
-          <div class="comp-bar-num" style="color:var(--yellow)">38.827</div>
-        </div>
+        <div class="comp-bar-row"><div class="comp-bar-month">Abr</div><div class="comp-bar-track"><div class="comp-bar-fill bar-prev" style="width:100%"></div></div><div class="comp-bar-num" style="color:var(--muted)">29.424</div></div>
+        <div class="comp-bar-row"><div class="comp-bar-month" style="color:var(--yellow)">Mai</div><div class="comp-bar-track"><div class="comp-bar-fill bar-cur" style="width:85%"></div></div><div class="comp-bar-num" style="color:var(--yellow)">25.067</div></div>
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- CRIATIVOS -->
 <div class="section">
   <div class="section-label">Vídeos que mais trouxeram contatos</div>
   <div class="criativos-grid">
-
     <div class="criativo winner">
-      <div class="criativo-top">
-        <div class="criativo-rank">🏆 Melhor do mês</div>
-        <div class="winner-crown">👑</div>
-      </div>
+      <div class="criativo-top"><div class="criativo-rank">🏆 Melhor do mês</div><div class="winner-crown">👑</div></div>
       <div class="criativo-name">Bem-vindo</div>
       <div class="criativo-pills">
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">Contatos</div>
-          <div class="criativo-metric-val">187</div>
-        </div>
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">CTR</div>
-          <div class="criativo-metric-val">0,50%</div>
-        </div>
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">Por contato</div>
-          <div class="criativo-metric-val">R$ 4,79</div>
-        </div>
+        <div class="criativo-metric"><div class="criativo-metric-label">Contatos</div><div class="criativo-metric-val">123</div></div>
+        <div class="criativo-metric"><div class="criativo-metric-label">CTR</div><div class="criativo-metric-val">0,49%</div></div>
+        <div class="criativo-metric"><div class="criativo-metric-label">Por contato</div><div class="criativo-metric-val">R$ 6,22</div></div>
       </div>
       <div style="margin-top:12px;background:rgba(0,0,0,0.12);border-radius:10px;padding:10px 12px;font-size:12px;color:rgba(0,0,0,0.7);line-height:1.5">
-        Taxa de conversão classificada como <strong>"Acima da Média"</strong> pelo Meta. Responsável por 94% dos contatos do mês.
+        Ainda o motor da conta com 88% dos contatos. Mas o CPR subiu de R$ 5,31 para R$ 6,22 — sinal de que o criativo está começando a saturar.
       </div>
     </div>
-
     <div class="criativo">
-      <div class="criativo-top">
-        <div class="criativo-rank">2º lugar</div>
-      </div>
-      <div class="criativo-name">Tá Procurando?</div>
+      <div class="criativo-top"><div class="criativo-rank">2º lugar</div></div>
+      <div class="criativo-name">Bem-vindo (campanha 2)</div>
       <div class="criativo-pills">
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">Contatos</div>
-          <div class="criativo-metric-val">9</div>
-        </div>
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">CTR</div>
-          <div class="criativo-metric-val">0,14%</div>
-        </div>
-        <div class="criativo-metric">
-          <div class="criativo-metric-label">Por contato</div>
-          <div class="criativo-metric-val">R$ 4,49</div>
-        </div>
+        <div class="criativo-metric"><div class="criativo-metric-label">Contatos</div><div class="criativo-metric-val">15</div></div>
+        <div class="criativo-metric"><div class="criativo-metric-label">CTR</div><div class="criativo-metric-val">0,53%</div></div>
+        <div class="criativo-metric"><div class="criativo-metric-label">Por contato</div><div class="criativo-metric-val">R$ 9,26</div></div>
       </div>
       <div style="margin-top:10px;background:var(--yellow-dim);border:1px solid rgba(200,212,0,0.2);border-radius:10px;padding:10px 12px;font-size:12px;color:#bbb;line-height:1.5">
-        🔍 Criativo novo em fase de aprendizado. Com CBO, o Meta priorizou o "Bem-vindo" que já estava provado — esse ainda teve orçamento limitado para testar.
+        Mesma versão do criativo em campanha separada — CPR mais alto (R$ 9,26) indica que o público desta campanha está menos qualificado.
       </div>
     </div>
-
   </div>
 </div>
 
-<!-- EVOLUÇÃO -->
 <div class="section">
   <div class="section-label">Evolução de contatos</div>
   <div class="chart-wrap">
     <div class="chart-title">Contatos recebidos por mês</div>
-    <div class="chart-canvas">
-      <canvas id="chart"></canvas>
-    </div>
+    <div class="chart-canvas"><canvas id="chart"></canvas></div>
   </div>
 </div>
 
-<!-- INSTAGRAM -->
 <div class="section">
   <div class="section-label">Instagram</div>
-
   <div style="background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:16px;text-align:center">
     <div style="font-size:12px;color:var(--yellow);font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:2px">Total de seguidores</div>
-    <div style="font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--text)">653</div>
+    <div style="font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1;color:var(--text)">727</div>
     <div style="margin-top:12px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
-      <div style="background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--green)">+45 novos ↑</div>
-      <div style="background:rgba(248,113,113,0.15);border:1px solid rgba(248,113,113,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--red)">−7 saíram</div>
-      <div style="background:var(--yellow-dim);border:1px solid rgba(200,212,0,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--yellow)">+6,1% vs fev</div>
+      <div style="background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--green)">+42 novos ↑</div>
+      <div style="background:rgba(248,113,113,0.15);border:1px solid rgba(248,113,113,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--red)">−15 saíram</div>
+      <div style="background:var(--yellow-dim);border:1px solid rgba(200,212,0,0.3);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:var(--yellow)">+4,0% vs abr</div>
     </div>
-    <div style="margin-top:10px;font-size:13px;color:var(--muted)">Líquido: <strong style="color:var(--green)">+38 seguidores</strong> em março</div>
+    <div style="margin-top:10px;font-size:13px;color:var(--muted)">Líquido: <strong style="color:var(--green)">+27 seguidores</strong> em maio</div>
   </div>
-
   <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px">
     <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px">Alcance orgânico</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
       <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(200,212,0,0.2)">
         <div style="font-size:12px;color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Visualizações</div>
-        <div style="font-size:36px;font-weight:900;color:var(--yellow);letter-spacing:-1px">46.240</div>
-        <div style="font-size:11px;color:#aaa;margin-top:4px">91,4% via anúncios</div>
+        <div style="font-size:36px;font-weight:900;color:var(--yellow);letter-spacing:-1px">30.286</div>
+        <div style="font-size:11px;color:#aaa;margin-top:4px">86,2% via anúncios</div>
       </div>
-      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(160,160,160,0.15)">
-        <div style="font-size:12px;color:#aaa;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Contas alcançadas</div>
-        <div style="font-size:36px;font-weight:900;color:#aaa;letter-spacing:-1px">17.303</div>
-        <div style="font-size:11px;color:#aaa;margin-top:4px">−6% vs período ant.</div>
+      <div style="background:var(--bg);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(74,222,128,0.2)">
+        <div style="font-size:12px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Contas alcançadas</div>
+        <div style="font-size:36px;font-weight:900;color:var(--green);letter-spacing:-1px">14.206</div>
+        <div style="font-size:11px;color:#aaa;margin-top:4px">+0,7% vs período ant.</div>
+      </div>
+    </div>
+    <div style="background:var(--bg);border-radius:12px;padding:16px;border:1px solid rgba(200,212,0,0.15)">
+      <div style="font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:12px">Atividade do perfil · −1,7% vs abril</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:13px;color:#ddd">👣 Visitas ao perfil</div>
+        <div style="font-size:16px;font-weight:800;color:var(--text)">215 <span style="font-size:11px;color:var(--green)">+2,9%</span></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-size:13px;color:#ddd">🔗 Toques em links externos</div>
+        <div style="font-size:16px;font-weight:800;color:var(--text)">21 <span style="font-size:11px;color:var(--red)">−32,3%</span></div>
       </div>
     </div>
   </div>
-
-  <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:20px">
-    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px">O que mais engajou em março</div>
-
+  <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px">
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:20px">O que mais engajou em maio</div>
     <div style="margin-bottom:16px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div style="font-size:15px;font-weight:700;color:var(--text)">🎬 Reels</div>
-        <div style="font-size:16px;font-weight:900;color:var(--yellow)">70,9%</div>
-      </div>
-      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden">
-        <div style="height:100%;width:70.9%;background:var(--yellow);border-radius:6px;box-shadow:0 0 10px rgba(200,212,0,0.4)"></div>
-      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700">🎬 Reels</div><div style="font-size:16px;font-weight:900;color:var(--yellow)">86,3%</div></div>
+      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden"><div style="height:100%;width:86.3%;background:var(--yellow);border-radius:6px"></div></div>
     </div>
-
     <div style="margin-bottom:16px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div style="font-size:15px;font-weight:700;color:var(--text)">📖 Stories</div>
-        <div style="font-size:16px;font-weight:900;color:#ccc">20,4%</div>
-      </div>
-      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden">
-        <div style="height:100%;width:20.4%;background:#555;border-radius:6px"></div>
-      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700">📖 Stories</div><div style="font-size:16px;font-weight:900;color:#ccc">11,0%</div></div>
+      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden"><div style="height:100%;width:11%;background:#555;border-radius:6px"></div></div>
     </div>
-
-    <div style="margin-bottom:4px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div style="font-size:15px;font-weight:700;color:var(--text)">🖼️ Posts</div>
-        <div style="font-size:16px;font-weight:900;color:#ccc">8,7%</div>
-      </div>
-      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden">
-        <div style="height:100%;width:8.7%;background:#555;border-radius:6px"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- INSIGHTS -->
-<div class="section">
-  <div class="section-label">O que aconteceu em março</div>
-  <div class="insights-grid">
-
-    <div class="insight">
-      <div class="insight-icon">🚀</div>
-      <div class="insight-content">
-        <div class="insight-title">Melhor mês da clínica até agora</div>
-        <div class="insight-text">198 contatos com 8% a mais de investimento. CPR caiu de R$ 5,58 para R$ 4,74 — os vídeos estão mais certeiros e o algoritmo está aprendendo melhor o público ideal.</div>
-      </div>
-    </div>
-
-    <div class="insight">
-      <div class="insight-icon">🎯</div>
-      <div class="insight-content">
-        <div class="insight-title">Bem-vindo domina — novo criativo em aprendizado</div>
-        <div class="insight-text">Com CBO, o Meta concentrou o orçamento no "Bem-vindo" que já estava provado. O "Tá Procurando?" recebeu investimento mínimo para teste — os dados dele ainda não são conclusivos para comparação direta.</div>
-      </div>
-    </div>
-
-    <div class="insight">
-      <div class="insight-icon">📈</div>
-      <div class="insight-content">
-        <div class="insight-title">Frequência saudável — campo aberto para crescer</div>
-        <div class="insight-text">Frequência de 2,19 — bem abaixo do limiar de saturação. O público ainda não cansou dos anúncios, o que significa espaço para aumentar o investimento sem perda de eficiência.</div>
-      </div>
-    </div>
-
-    <div class="insight">
-      <div class="insight-icon">📱</div>
-      <div class="insight-content">
-        <div class="insight-title">Perfil crescendo todo mês</div>
-        <div class="insight-text">+38 seguidores líquidos em março, acumulando 653 no total. Os Stories ganharam espaço (20,4%) — o perfil está mais ativo e diversificado nos formatos.</div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <div class="footer-brand">
-    <div class="logo-mark">Me.</div>
     <div>
-      <div class="footer-name">me produz.</div>
-      <div class="footer-sub">Produtora de Vídeos com Estratégia</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:15px;font-weight:700">🖼️ Posts</div><div style="font-size:16px;font-weight:900;color:#ccc">2,7%</div></div>
+      <div style="height:12px;background:var(--bg);border-radius:6px;overflow:hidden"><div style="height:100%;width:2.7%;background:#555;border-radius:6px"></div></div>
     </div>
   </div>
-  <div class="footer-period">
-    Março 2026<br>
-    01/03 — 31/03
+  <div style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:20px">
+    <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:14px">🏆 Reels destaque de maio — dia 13</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:center;background:var(--yellow-dim);border:1px solid rgba(200,212,0,0.2);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:700;color:var(--text)">Reel · 13/mai</div>
+        <div style="font-size:18px;font-weight:900;color:var(--yellow)">1,1 mil views</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:700;color:var(--text)">Reel · 13/mai</div>
+        <div style="font-size:18px;font-weight:900;color:#aaa">976 views</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px">
+        <div style="font-size:13px;font-weight:700;color:var(--text)">Reel · 13/mai</div>
+        <div style="font-size:18px;font-weight:900;color:#aaa">798 views</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:var(--green-dim);border:1px solid rgba(74,222,128,0.2);border-radius:10px;padding:12px 14px;font-size:13px;color:#bbb;line-height:1.5">
+      📅 Os reels com mais views foram publicados nos dias 13, 16 e 19 de maio — distribuídos ao longo do mês. <strong style="color:var(--green)">Sorocaba lidera com 59,6%</strong> do público.
+    </div>
+    <div style="margin-top:12px">
+      <div style="font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Quem acompanha o perfil</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div style="background:var(--bg);border-radius:12px;padding:14px;text-align:center;border:1px solid var(--border)">
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600">Mulheres</div>
+          <div style="font-size:32px;font-weight:900;color:var(--yellow)">62,7%</div>
+        </div>
+        <div style="background:var(--bg);border-radius:12px;padding:14px;text-align:center;border:1px solid var(--border)">
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-weight:600">Homens</div>
+          <div style="font-size:32px;font-weight:900;color:#aaa">37,3%</div>
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Principal faixa etária</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;color:var(--text)">25–34 anos</span><span style="font-size:13px;font-weight:800;color:var(--yellow)">36,7%</span></div><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden"><div style="height:100%;width:100%;background:var(--yellow);border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;color:#ccc">18–24 anos</span><span style="font-size:13px;font-weight:700;color:#ccc">27,5%</span></div><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden"><div style="height:100%;width:75%;background:#555;border-radius:4px"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:13px;color:#ccc">35–44 anos</span><span style="font-size:13px;font-weight:700;color:#ccc">20,3%</span></div><div style="height:8px;background:var(--bg);border-radius:4px;overflow:hidden"><div style="height:100%;width:55%;background:#555;border-radius:4px"></div></div></div>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class="section">
+  <div class="section-label">O que aconteceu em maio</div>
+  <div class="insights-grid">
+    <div class="insight"><div class="insight-icon">⚠️</div><div class="insight-content"><div class="insight-title">Criativo principal saturando</div><div class="insight-text">O CPR do "Bem-vindo" subiu de R$ 4,74 (março) para R$ 5,31 (abril) para R$ 6,22 (maio). Tendência clara de saturação — é hora de introduzir um criativo novo para reverter essa curva.</div></div></div>
+    <div class="insight"><div class="insight-icon">📈</div><div class="insight-content"><div class="insight-title">Seguidores em alta constante</div><div class="insight-text">+27 líquidos em maio — o melhor crescimento orgânico dos últimos 3 meses. 727 seguidores com +4% vs abril. O perfil está ganhando autoridade independente das campanhas.</div></div></div>
+    <div class="insight"><div class="insight-icon">📍</div><div class="insight-content"><div class="insight-title">Sorocaba concentra 59,6% do público</div><div class="insight-text">Dado importante para segmentação — a base do perfil é fortemente local. Criativos com referências à Sorocaba e região tendem a ter maior conexão com esse público.</div></div></div>
+    <div class="insight"><div class="insight-icon">🎬</div><div class="insight-content"><div class="insight-title">Reels com melhor desempenho do mês</div><div class="insight-text">Os três reels com mais views foram publicados nos dias 13, 16 e 19 de maio — 1,1k, 976 e 798 visualizações respectivamente. Cadência consistente de publicação ao longo do mês gerando alcance orgânico relevante.</div></div></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-brand"><div class="logo-mark">Me.</div><div><div class="footer-name">me produz.</div><div class="footer-sub">Produtora de Vídeos com Estratégia</div></div></div>
+  <div class="footer-period">Maio 2026<br>02/05 — 31/05</div>
 </div>
 
 <script>
+const ctxGeral = document.getElementById('chartGeral').getContext('2d');
+new Chart(ctxGeral, {
+  type: 'line',
+  data: {
+    labels: ['Contatos', 'Alcance (×100)', 'Impressões (×100)'],
+    datasets: [
+      { label: 'Abril', data: [163, 294, 663], borderColor: '#a78bfa', backgroundColor: 'rgba(167,139,250,0.08)', borderWidth: 3, pointBackgroundColor: '#a78bfa', pointRadius: 6, tension: 0.4, fill: true },
+      { label: 'Maio', data: [140, 251, 600], borderColor: '#c8d400', backgroundColor: 'rgba(200,212,0,0.08)', borderWidth: 3, pointBackgroundColor: '#c8d400', pointRadius: 6, tension: 0.4, fill: true }
+    ]
+  },
+  options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1e1e1e', titleColor: '#fff', bodyColor: '#f0f0f0', borderColor: '#2a2a2a', borderWidth: 1, callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.raw } } }, scales: { x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#666', font: { family: 'Poppins', size: 10, weight: '600' } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#666', font: { family: 'Poppins', size: 10 } } } } }
+});
 const ctx = document.getElementById('chart').getContext('2d');
 new Chart(ctx, {
   type: 'bar',
-  data: {
-    labels: ['Janeiro', 'Fevereiro', 'Março'],
-    datasets: [{
-      data: [82, 151, 198],
-      backgroundColor: ['#2a2a2a', '#2a2a2a', '#c8d400'],
-      borderRadius: 12,
-      borderSkipped: false,
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: '#1e1e1e',
-        titleColor: '#c8d400',
-        bodyColor: '#f0f0f0',
-        borderColor: '#2a2a2a',
-        borderWidth: 1,
-        callbacks: { label: ctx => ' ' + ctx.raw + ' contatos' }
-      }
-    },
-    scales: {
-      x: {
-        grid: { display: false },
-        ticks: { color: '#666', font: { family: 'Poppins', size: 12, weight: '600' } }
-      },
-      y: {
-        grid: { color: 'rgba(255,255,255,0.04)' },
-        ticks: { color: '#666', font: { family: 'Poppins', size: 11 } }
-      }
-    }
-  }
+  data: { labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai'], datasets: [{ data: [82, 151, 198, 163, 140], backgroundColor: ['#2a2a2a', '#2a2a2a', '#2a2a2a', '#2a2a2a', '#c8d400'], borderRadius: 12, borderSkipped: false }] },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1e1e1e', titleColor: '#c8d400', bodyColor: '#f0f0f0', borderColor: '#2a2a2a', borderWidth: 1, callbacks: { label: ctx => ' ' + ctx.raw + ' contatos' } } }, scales: { x: { grid: { display: false }, ticks: { color: '#666', font: { family: 'Poppins', size: 11, weight: '600' } } }, y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#666', font: { family: 'Poppins', size: 11 } } } } }
 });
 </script>
-
 </body>
 </html>
